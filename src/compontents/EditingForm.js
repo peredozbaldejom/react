@@ -1,6 +1,6 @@
 import '../App.css';
-import { Button, Form, FormText, Col, FormGroup, Label, Input } from 'reactstrap';
-import { Button as butBoot} from 'bootstrap'
+import { Form, FormText, Col, FormGroup, Label, Input } from 'reactstrap';
+import { Button as ButBoot} from 'bootstrap'
 import styled from 'styled-components'
 
 
@@ -289,8 +289,7 @@ export const Element = () => {
                 
             </Form>
             <div>
-                <butBoot type="button" class="btn btn-outline-primary"> button fom bootstrap</butBoot>
-                <SButton primary>styled component</SButton>
+                
             </div>
     </div>
 
