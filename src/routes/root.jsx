@@ -1,3 +1,5 @@
+import { Outlet } from "react-router-dom";
+
 export default function Root() {
     return (
       <>
@@ -8,7 +10,7 @@ export default function Root() {
               <input
                 id="q"
                 aria-label="Search contacts"
-                placeholder="Search"
+                placeholder="SePlaarch"
                 type="search"
                 name="q"
               />
@@ -37,7 +39,9 @@ export default function Root() {
             </ul>
           </nav>
         </div>
-        <div id="detail"></div>
+        <div id="detail">
+            <Outlet />
+        </div>
       </>
     );
   }
