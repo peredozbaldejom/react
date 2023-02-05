@@ -1,14 +1,16 @@
 import React from 'react'
 import './App.css';
-import { Element} from './compontents/EditingForm'
+import { Element, action as editingAction } from './compontents/EditingForm'
 import { Navbar } from './app/Navbar'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
-import Root, { loader as rootLoader, action as rootAction } from './routes/root';
+import Root, { loader as rootLoader, action as rootAction } from './routes/newRoot';
 import ErrorPage from './error-page';
 import Contact, { loader as contactLoader, action as contactAction } from './routes/contacts';
 import EditContact, {action as editAction,} from "./routes/edit"
 import { action as destroyAction } from './routes/destroy';
 import Index from './routes/index';
+
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +22,11 @@ const router = createBrowserRouter(
       errorElement={<ErrorPage />}
     >
       <Route errorElement={<ErrorPage />}>
-        <Route index element={<Index />} />
+        <Route 
+          index
+          element={<Element />} 
+          action={editingAction}
+        />
         <Route
           path="contacts/:contactId"
           element={<Contact />}

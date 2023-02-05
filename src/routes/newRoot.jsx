@@ -30,38 +30,40 @@ export default function Root() {
     return (
       <>
         <div id="sidebar">
-          <h1>React Router Contacts</h1>
-          <div>
-            <Form id="search-form" role="search">
-              <input
-                id="q"
-                className={searching ? 'loading' : ''}
-                aria-label="Search contacts"
-                placeholder="SePlaarch"
-                type="search"
-                name="q"
-                defaultValue={q}
-                onChange={(event) => {
-                    const isFirstSearch = q == null;
-                    submit(event.currentTarget.form, {
-                        replace: !isFirstSearch,
-                    });
-                }}
-              />
-              <div
-                id="search-spinner"
-                aria-hidden
-                hidden={!searching}
-              />
-              <div
-                className="sr-only"
-                aria-live="polite"
-              ></div>
-            </Form>
-            <Form method="post">
-              <button type="submit">New</button>
-            </Form>
-          </div>
+            <div className="sidebar_first">
+                <h1>React Router Contacts</h1>
+                <div className="search_panel">
+                    <Form id="search-form" role="search">
+                        <input
+                            id="q"
+                            className={searching ? 'loading' : ''}
+                            aria-label="Search contacts"
+                            placeholder="SePlaarch"
+                            type="search"
+                            name="q"
+                            defaultValue={q}
+                            onChange={(event) => {
+                                const isFirstSearch = q == null;
+                                submit(event.currentTarget.form, {
+                                    replace: !isFirstSearch,
+                                });
+                            }}
+                        />
+                        <div
+                            id="search-spinner"
+                            aria-hidden
+                            hidden={!searching}
+                        />
+                        <div
+                            className="sr-only"
+                            aria-live="polite"
+                        ></div>
+                    </Form>
+                    <Form method="post">
+                        <button type="submit">New</button>
+                    </Form>
+                </div>
+            </div>
           <nav>
             {contacts.length ? (
                 <ul>
