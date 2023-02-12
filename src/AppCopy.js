@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css';
-import { Element, action as editingAction } from './compontents/EditingForm'
+import { Element, action as editingAction } from './routes/EditingForm'
 import { Navbar } from './app/Navbar'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Root, { loader as rootLoader, action as rootAction } from './routes/newRoot';
@@ -25,7 +25,7 @@ const router = createBrowserRouter(
       <Route errorElement={<ErrorPage />}>
         <Route 
           index
-          element={<Element />} 
+          element={<Index />} 
           action={editingAction}
         />
         <Route
@@ -36,9 +36,9 @@ const router = createBrowserRouter(
         />
         <Route
           path="contacts/:contactId/edit"
-          element={<EditContact />}
+          element={<Element />}
           loader={contactLoader}
-          action={editAction}
+          action={editingAction}
         />
         <Route
           path="contacts/:contactId/destroy"
@@ -48,6 +48,7 @@ const router = createBrowserRouter(
           path="tablecontacts"
           element={<TableContacts />}
           loader={rootLoader}
+          action={rootAction}
         />
       </Route>
     </Route>

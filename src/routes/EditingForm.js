@@ -4,6 +4,9 @@ import { Button as ButBoot} from 'bootstrap'
 import styled from 'styled-components'
 import { Form, useLoaderData, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
+import { updateContact } from '../contacts';
+import { redirect } from 'react-router-dom';
+
 
 
 export async function action ({ request, params }) {
@@ -11,7 +14,8 @@ export async function action ({ request, params }) {
     let formData = await request.formData();
     const updates = Object.fromEntries(formData);
     console.log(formData, updates, 'formdata and update')
-    return {formData, updates}
+    await updateContact(params.contactId, updates);
+    return redirect(`/contacts/${params.contactId}`)
 }
 
 
@@ -31,12 +35,17 @@ const SButton = styled.button`
 
 
 export const Element = () => {
-    // const contact = useLoaderData();
+    const contact = useLoaderData();
+    console.log({contact}, contact.first === undefined, 'element contact');
     const navigate = useNavigate();
     const changerSize = (e) => {e.target.style.height = e.target.scrollHeight + 'px';}
     const [diag, setDiag] = useState([
-        'value: the first',
-        'value: the second',
+        'шизофрения f20',
+        'другие психотические расстройства F06.818',
+    ])
+    const [diagSin, setDiagsin] = useState([
+        'синдром аффективно-бредовой',
+        'параноидный синдром',
     ])
 
     return (
@@ -45,17 +54,19 @@ export const Element = () => {
                 <Col sm={8}>
                     <Input
                         id="name"
-                        name="fio"
+                        name="first"
                         placeholder="Фамилия Имя Отчество"
                         type="text"
+                        defaultValue={contact.first}
                     />
                 </Col>
                 <Col sm={4}>
                     <Input
                         id="dateBirth"
-                        name="DateBirtday"
+                        name="dateBirth"
                         placeholder="Дата рождения (ДД.ММ.ГГГГ)"
                         type="date"
+                        defaultValue={contact.dateBirth}
                     />
                 </Col>
             </FormGroup>
@@ -328,53 +339,22 @@ export const Element = () => {
             <FormGroup>
                 <Label>Диагноз</Label>
                 <Col sm={12}>
-                    <Input list="browsers2" name="area" />  
+                    <Input list="browsers2" name="dia" />  
                     <datalist id="browsers2">
                         {diag.map((item) => {
                             return <option value={item} key={item}/>
                         })}
                     </datalist>
                 </Col>
+                <Col sm={12}>
+                    <Input list="browsers3" name="sind" />  
+                    <datalist id="browsers3">
+                        {diagSin.map((item) => {
+                            return <option value={item} key={item}/>
+                        })}
+                    </datalist>
+                </Col>
             </FormGroup>
-            
-
-            
-            {/* <p>
-                <span>Name</span>
-                <input
-                placeholder="First"
-                aria-label="First name"
-                type="text"
-                name="first"
-                defaultValue={'contact.first'}
-                />
-                <input
-                placeholder="Last"
-                aria-label="Last name"
-                type="text"
-                name="last"
-                defaultValue={'contact.last'}
-                />
-            </p>
-            <label>
-                <span>Twitter</span>
-                <input
-                type="text"
-                name="twitter"
-                placeholder="@jack"
-                defaultValue={'contact.twitter'}
-                />
-            </label>
-            <label>
-                <span>Avatar URL</span>
-                <input
-                placeholder="https://example.com/avatar.jpg"
-                aria-label="Avatar URL"
-                type="text"
-                name="avatar"
-                defaultValue={'contact.avatar'}
-                />
-            </label> */}
             
             <p>
                 <button type="submit">Save</button>
@@ -382,6 +362,7 @@ export const Element = () => {
                     type="button"
                     onClick={() => {
                         navigate(-1);
+                        console.log(navigate)
                     }}
                 >Cancel</button>
             </p>

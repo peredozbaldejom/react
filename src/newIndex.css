@@ -156,11 +156,13 @@ form[action$="destroy"] button {
 
 #sidebar > div {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #e3e3e3;
+  align-items: flex-start;
 }
 
 #sidebar > div form {
@@ -201,6 +203,7 @@ form[action$="destroy"] button {
 }
 
 #sidebar nav {
+  display: none;
   flex: 1;
   overflow: auto;
   padding-top: 1rem;
@@ -258,6 +261,74 @@ i {
 #sidebar nav a.pending {
   color: hsl(224, 98%, 58%);
 }
+
+
+.tableDepartment nav {
+  flex: 1;
+  overflow: auto;
+  padding-top: 1rem;
+}
+
+.tableDepartment nav a span {
+  float: right;
+  color: #eeb004;
+}
+.tableDepartment nav a.active span {
+  color: inherit;
+}
+
+i {
+  color: #818181;
+}
+.tableDepartment nav .active i {
+  color: inherit;
+}
+
+.tableDepartment ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.tableDepartment li {
+  margin: 0.25rem 0;
+}
+
+nav.tableDepartment a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+
+  white-space: pre;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  gap: 1rem;
+}
+
+nav.tableDepartment a:hover {
+  background: #e3e3e3;
+  color: #212529;
+  /* background-color: #fff; */
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+
+nav.tableDepartment a.active {
+  background: hsl(224, 98%, 58%);
+  color: white;
+}
+
+nav.tableDepartment a.pending {
+  color: hsl(224, 98%, 58%);
+}
+
 
 #detail {
   flex: 1;

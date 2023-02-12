@@ -4,6 +4,7 @@ import { updateContact } from "../contacts";
 
 
 export async function loader({ params }) {
+    console.log({params}, '- loader from contact')
     const contact = await getContact(params.contactId);
     if (!contact) {
         throw new Response('', {

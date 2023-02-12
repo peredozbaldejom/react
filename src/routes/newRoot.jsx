@@ -3,6 +3,7 @@ import { Outlet, NavLink, useLoaderData, Form, redirect, useNavigation, useSubmi
 import { getContacts, createContact } from '../contacts';
 
 export async function action() {
+    console.log('action from root action redirect to edit')
     const contact = await createContact();
     return redirect(`/contacts/${contact.id}/edit`);
 }
@@ -12,6 +13,10 @@ export async function loader({ request }){
     const q = url.searchParams.get('q');
     const contacts = await getContacts(q);
     return { contacts, q };
+}
+
+export function newAction() {
+    return redirect('/tablecontacts')
 }
 
 export default function Root() {
@@ -31,7 +36,7 @@ export default function Root() {
       <>
         <div id="sidebar">
             <div className="sidebar_first">
-                <h1>React Router Contacts</h1>
+                <h1>my enjoy</h1>
                 <div className="search_panel">
                     <Form id="search-form" role="search">
                         <input
@@ -62,6 +67,13 @@ export default function Root() {
                     <Form method="post">
                         <button type="submit">New</button>
                     </Form>
+                    
+                    <NavLink 
+                        to={'tablecontacts'}>
+                        <button type='button'>Table
+                        </button>
+                    </NavLink>   
+                    
                 </div>
             </div>
           <nav>

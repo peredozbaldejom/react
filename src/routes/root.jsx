@@ -3,6 +3,7 @@ import { Outlet, NavLink, useLoaderData, Form, redirect, useNavigation, useSubmi
 import { getContacts, createContact } from '../contacts';
 
 export async function action() {
+    console.log('action from root action')
     const contact = await createContact();
     return redirect(`/contacts/${contact.id}/edit`);
 }
@@ -61,6 +62,7 @@ export default function Root() {
             <Form method="post">
               <button type="submit">New</button>
             </Form>
+            
           </div>
           <nav>
             {contacts.length ? (
