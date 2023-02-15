@@ -54,10 +54,10 @@ export const Element = () => {
                 <Col sm={8}>
                     <Input
                         id="name"
-                        name="first"
+                        name="fio"
                         placeholder="Фамилия Имя Отчество"
                         type="text"
-                        defaultValue={contact.first}
+                        defaultValue={contact.fio}
                     />
                 </Col>
                 <Col sm={4}>
@@ -74,8 +74,8 @@ export const Element = () => {
                 {/* <Label sm={1}>Адрес</Label> */}
                 <Col sm={7}>
                     <Input
-                        label='complain'
-                        id="conplain"
+                        label='address'
+                        id="address"
                         name="encomplain"
                         title='Адрес регистрации и проживания'
                         placeholder="Адрес регистрации"
@@ -87,42 +87,42 @@ export const Element = () => {
                     sm={1}
                 >Район</Label>
                 <Col sm={4}>
-                    <Input list="browsers" name="area" />  
-                    <datalist id="browsers">
+                    <Input list="area" name="area" />  
+                    <datalist id="area">
                         <option value="Приморский" />
                         <option value="Красногвардейский" />
-                        <option value="Internet Explorer" />
-                        <option value="Opera" />
-                        <option value="Safari" />
-                        <option value="Microsoft Edge" />   
+                        <option value="Калининский" />
+                        <option value="Приморский" />
+                        <option value="Колпинский" />
+                        <option value="Невский" />   
                     </datalist>
                 </Col>
              </FormGroup>
             <FormGroup row>
                 <Label
-                    for="exampleSelect"
+                    for="enter"
                     sm={2}
                 >Поступил</Label>
                 <Col sm={4}>
                     <Input 
-                        id="entries2"
-                        name="enteries2"
+                        id="enter"
+                        name="enter"
                         title="Дата поступления (ДД.ММ.ГГГГ)"
                         type="date"
                     />
                 </Col>
                 <Col sm={3}>
                     <Input 
-                        id="entries3"
-                        name="enteries3"
+                        id="time"
+                        name="time"
                         placeholder="09:00"
                         type="time"
                     />
                 </Col>
                 <Col sm={3}>
                     <Input
-                        id="exampleSelect2"
-                        name="select2"
+                        id="count"
+                        name="count"
                         type="select"
                     >
                         <option>
@@ -140,8 +140,8 @@ export const Element = () => {
                 </Label>
                 <Col sm={3}>
                     <Input
-                        id="exampleSelect"
-                        name="select"
+                        id="driver"
+                        name="driver"
                         type="select"
                     >
                         <option>
@@ -163,8 +163,8 @@ export const Element = () => {
                 </Label>
                 <Col sm={4}>
                     <Input 
-                        id="entries6"
-                        name="select6"
+                        id="type"
+                        name="type"
                         type="select"
                     >
                         <option>
@@ -178,32 +178,32 @@ export const Element = () => {
             </FormGroup>
             <FormGroup row>
                 <Label
-                    for="date"
+                    for="date2"
                     sm={2}
                 >Осмотрен</Label>
                 <Col sm={3}>
                     <Input 
-                        id="entries4"
-                        name="enteries4"
+                        id="date2"
+                        name="date2"
                         placeholder="Дата осмотра (ДД.ММ.ГГГГ)"
                         type="date"
                     />
                 </Col>
                 <Col sm={2}>
                     <Input 
-                        id="entries5"
-                        name="enteries5"
+                        id="time2"
+                        name="time2"
                         placeholder="время осмотра"
                         type="time"
                     />
                 </Col>
                 <Label sm={2}>
-                Госпитализирован
+                    Госпитализирован
                 </Label>
                 <Col sm={3}>
                     <Input 
-                        id="entries6"
-                        name="select6"
+                        id="type2"
+                        name="type2"
                         type="select"
                     >
                         <option>
@@ -217,13 +217,13 @@ export const Element = () => {
             </FormGroup>
             <FormGroup row>
                 <Label
-                    for="entries"
+                    for="doc"
                     sm={1}
                 >Врач</Label>
                 <Col sm={3}>
                     <Input 
-                        id="entries7"
-                        name="enteries7"
+                        id="doc"
+                        name="doc"
                         placeholder="ФИО врача"
                         type="text"
                     />
@@ -234,9 +234,9 @@ export const Element = () => {
                 >Зав.отд.</Label>
                 <Col sm={3}>
                     <Input 
-                        label='zsve'
+                        label='zav'
                         id="zav"
-                        name="enteries8"
+                        name="zav"
                         placeholder="заведующий"
                         type="text"
                     />
@@ -248,10 +248,10 @@ export const Element = () => {
                 <Label sm={1}>Жалобы</Label>
                 <Col sm={5}>
                     <Input 
-                        defaultValue='no'
+                        defaultValue='жалобы'
                         label='complain'
                         id="conplain"
-                        name="encomplain"
+                        name="complain"
                         placeholder="жалобы"
                         type="text"
                     />
@@ -259,9 +259,9 @@ export const Element = () => {
                 <Label sm={2}>Выписка</Label>
                 <Col sm={4}>
                     <Input 
-                        label='complain'
-                        id="conplain"
-                        name="encomplain"
+                        label='exit'
+                        id="exit"
+                        name="exit"
                         title='выписка'
                         placeholder="Дата выписки"
                         type="date"
@@ -269,12 +269,14 @@ export const Element = () => {
                 </Col>
             </FormGroup>
             <FormGroup>
-                <Label>Жалобы</Label>
+                <Label>
+                    Анамнез жизни
+                </Label>
                 <Col sm={12}>
                     <textarea
                         defaultValue='no'
                         className='textarea'
-                        name='textarea'
+                        name='anamnezLive'
                         rows={1}
                         placeholder='new text'
                         onChange={(e) => { changerSize(e) }}
@@ -282,7 +284,7 @@ export const Element = () => {
                 </Col>
             </FormGroup>
             <FormGroup>
-                <Label>Жалобы</Label>
+                <Label>Анамнез болезни</Label>
                 <Col sm={12}>
                     <textarea
                         className='textarea'
