@@ -284,7 +284,7 @@ export const Element = () => {
                 </Col>
             </FormGroup>
             <FormGroup>
-                <Label>Анамнез болезни</Label>
+                <Label>Наркологический анамнез</Label>
                 <Col sm={12}>
                     <textarea
                         className='textarea'
@@ -295,7 +295,7 @@ export const Element = () => {
                 </Col>
             </FormGroup>
             <FormGroup>
-                <Label>Анамнез жизни</Label>
+                <Label>Из направления</Label>
                 <Col sm={12}>
                     <textarea
                         className='textarea'
@@ -306,7 +306,62 @@ export const Element = () => {
                 </Col>
             </FormGroup>
             <FormGroup>
-                <Label>Анамнез болезни</Label>
+                <Label>В приемном покое</Label>
+                <Col sm={12}>
+                    <textarea
+                        className='textarea'
+                        name='textarea'
+                        placeholder='new text'
+                        onChange={(e) => { changerSize(e) }}
+                    />
+                </Col>
+            </FormGroup>
+            <FormGroup>
+                <Label>При осмотре в отделении</Label>
+                <Col sm={12}>
+                    <textarea
+                        className='textarea'
+                        name='textarea'
+                        placeholder='new text'
+                        onChange={(e) => { changerSize(e) }}
+                    />
+                </Col>
+            </FormGroup>
+            <FormGroup>
+                <Label>Неврологический статус</Label>
+                <Col sm={12}>
+                    <textarea
+                        className='textarea'
+                        name='textarea'
+                        placeholder='new text'
+                        onChange={(e) => { changerSize(e) }}
+                    />
+                </Col>
+            </FormGroup>
+            <FormGroup>
+                <Label>Соматический статус</Label>
+                <Col sm={12}>
+                    <textarea
+                        className='textarea'
+                        name='textarea'
+                        placeholder='new text'
+                        onChange={(e) => { changerSize(e) }}
+                    />
+                </Col>
+            </FormGroup>
+            <FormGroup>
+                <Label>Гинекологический анамнез</Label>
+                <Col sm={12}>
+                    <textarea
+                        className='textarea'
+                        name='textarea'
+                        placeholder='new text'
+                        onChange={(e) => { changerSize(e) }}
+                    />
+                </Col>
+            </FormGroup>
+            <FormGroup>
+                <Label>Эпидимиологический анамнез</Label>
                 <Col sm={12}>
                     <textarea
                         className='textarea'
@@ -328,7 +383,7 @@ export const Element = () => {
                 </Col>
             </FormGroup>
             <FormGroup>
-                <Label>Эпидимиологический анамнез</Label>
+                <Label>Из перенесенных заболеваний, в том числе сведения о хронических, и заболевания по поводу которых получает терапию в настоящий момент</Label>
                 <Col sm={12}>
                     <textarea
                         className='textarea'
@@ -357,7 +412,58 @@ export const Element = () => {
                     </datalist>
                 </Col>
             </FormGroup>
-            
+            <FormGroup>
+                <Label>Лечение</Label>
+                <Col sm={12}>
+                    <Input list="browsers2" name="dia" />  
+                    <datalist id="browsers2">
+                        {diag.map((item) => {
+                            return <option value={item} key={item}/>
+                        })}
+                    </datalist>
+                </Col>
+                <Col sm={12}>
+                    <textarea
+                        className='textarea'
+                        name='treatment'
+                        placeholder='new text'
+                        onChange={(e) => { changerSize(e) }}
+                    />
+                </Col>
+            </FormGroup>
+            <FormGroup>
+                <Label>Динамика состояния в отделении</Label>
+                <Col sm={12}>
+                    <textarea
+                        className='textarea'
+                        name='textarea'
+                        placeholder='new text'
+                        onChange={(e) => { changerSize(e) }}
+                    />
+                </Col>
+            </FormGroup>
+            <FormGroup>
+                <Label>При выписке</Label>
+                <Col sm={12}>
+                    <textarea
+                        className='textarea'
+                        name='textarea'
+                        placeholder='new text'
+                        onChange={(e) => { changerSize(e) }}
+                    />
+                </Col>
+            </FormGroup>
+            <FormGroup>
+                <Label>Рекомендации по выписке</Label>
+                <Col sm={12}>
+                    <textarea
+                        className='textarea'
+                        name='textarea'
+                        placeholder='new text'
+                        onChange={(e) => { changerSize(e) }}
+                    />
+                </Col>
+            </FormGroup>
             <p>
                 <button type="submit">Save</button>
                 <button 
