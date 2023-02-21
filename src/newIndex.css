@@ -60,6 +60,27 @@ button:active {
   transform: translateY(1px);
 }
 
+.button_table {
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: space-row;
+  justify-content: space-between;
+  border-bottom: #86b7fe solid 0.1rem;
+}
+.button_table h6 {
+  display: flex;
+  flex-direction: space-row;
+  justify-content: space-between;
+  gap: 6rem;
+  margin-bottom: 0;
+  align-items: center;
+  margin-right: 1rem;
+}
+.button_table h6 p {
+  margin-bottom: 0;
+}
+
 .textarea {
   width: 100%;
 }

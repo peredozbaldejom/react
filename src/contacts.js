@@ -10,6 +10,7 @@ export async function getContacts(query) {
   if (query) {
     contacts = matchSorter(contacts, query, { keys: ["first", "last"] });
   }
+  // localStorage.clear();
   return contacts.sort(sortBy("last", "createdAt"));
 }
 

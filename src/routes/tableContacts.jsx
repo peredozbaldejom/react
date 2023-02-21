@@ -23,15 +23,18 @@ export async function action ({ request, params }) {
 
 export default function TableContacts() {
     const { contacts } = useLoaderData();
-
+    console.log(contacts.map((contact) => console.log(contact.fio)))
     
   
   return (
     <nav className="tableDepartment">
         <Form 
             method="post"
+            className='button_table'
             >
-             <button type="submit">New</button>
+                <button type="submit">New</button>
+                <h6 className="form_table_p"><p>Дата рождения</p><p>Поступил</p></h6>
+                
         </Form>
         {contacts.length ? (
             <ul>
@@ -41,9 +44,10 @@ export default function TableContacts() {
                         to={`/contacts/${contact.id}`}
                         className={({ isActive, isPending}) => isActive ? 'active' : isPending ? 'pending' : ''}
                     >    
-                        {contact.first || contact.last ? (
+                        {contact.fio ? (
                             <>
-                                {contact.first} {contact.last}
+                                <h4>{contact.fio}</h4>    
+                                <h4>{contact.dateBirth}        {contact.enter}</h4>
                             </>
                         ) : (
                             <i>No Name</i>

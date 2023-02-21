@@ -35,9 +35,9 @@ export default function Contact() {
       </div>
       <div>
         <h1>
-          {contact.first || contact.last ? (
+          {contact.fio || contact.fio ? (
             <>
-              {contact.first} {contact.last}
+              {contact.fio} 
             </>
           ) : (
             <i>No Name</i>
