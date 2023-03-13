@@ -66,7 +66,7 @@ button:active {
   display: flex;
   flex-direction: space-row;
   justify-content: space-between;
-  border-bottom: #86b7fe solid 0.1rem;
+  /* border-bottom: #86b7fe solid 0.1rem; */
 }
 .button_table h6 {
   display: flex;
@@ -331,6 +331,16 @@ nav.tableDepartment a {
   gap: 1rem;
 }
 
+.liDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.liDiv :first-child {
+  margin: 0 2.5rem;
+}
+
 nav.tableDepartment a:hover {
   background: #e3e3e3;
   color: #212529;
@@ -340,6 +350,29 @@ nav.tableDepartment a:hover {
   box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
 
+nav.tableDepartment .titleTable {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+nav.tableDepartment .titleTable div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+nav.tableDepartment .nameCol .form_table_p{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 3.5rem;
+  margin-right: 1.5rem;
+  gap: 4rem;
+  margin-bottom: 0px;
+}
 
 nav.tableDepartment a.active {
   background: hsl(224, 98%, 58%);
@@ -349,6 +382,8 @@ nav.tableDepartment a.active {
 nav.tableDepartment a.pending {
   color: hsl(224, 98%, 58%);
 }
+
+
 
 
 #detail {

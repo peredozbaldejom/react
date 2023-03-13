@@ -8,10 +8,10 @@ export async function getContacts(query) {
   let contacts = await localforage.getItem("contacts");
   if (!contacts) contacts = [];
   if (query) {
-    contacts = matchSorter(contacts, query, { keys: ["fio", "dateBirth"] });
+    contacts = matchSorter(contacts, query, { keys: ["first", "last"] });
   }
   // localStorage.clear();
-  return contacts.sort(sortBy("fio", "dateBirth"));
+  return contacts.sort(sortBy("last", "createdAt"));
 }
 
 export async function createContact() {
